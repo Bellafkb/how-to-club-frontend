@@ -4,8 +4,6 @@ import NavBar from './components/NavBar.js'
 import AppForm from './components/AppForm.js'
 import Feed from './components/Feed.js'
 
-
-
 class App extends Component {
   render() {
     return (

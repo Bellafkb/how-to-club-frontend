@@ -5,8 +5,7 @@ export default class AppCard extends Component {
     render() {
         return (
             <div>
-                <Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src="http://via.placeholder.com/100x100" />
+                <Card >
                     <Card.Body>
                         <Card.Title>Card Title</Card.Title>
                         <Card.Text>

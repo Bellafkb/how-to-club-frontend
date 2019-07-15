@@ -18,7 +18,6 @@ class AppForm extends Component {
                     <Button variant="outline-info">Search</Button>
                 </Form>
             </div>
-
         );
     }
 }

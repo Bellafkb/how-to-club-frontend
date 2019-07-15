@@ -3,11 +3,12 @@ import { Card, Button } from "react-bootstrap";
 
 export default class AppCard extends Component {
     render() {
+
         return (
             <div>
                 <Card >
                     <Card.Body>
-                        <Card.Title>Card Title</Card.Title>
+                        <Card.Title>{this.props.club.name}</Card.Title>
                         <Card.Text>
                             Some quick example text to build on the card title and make up the bulk of
                             the card's content.

@@ -8,7 +8,7 @@ class AppForm extends Component {
             <div class="form-container" >
                 <Form inline >
                 <Autocomplete
-                class="autocomplete"
+                className="autocomplete"
                         style={{ width: '80%' }}
                         onPlaceSelected={(place) => {
                             console.log(place);

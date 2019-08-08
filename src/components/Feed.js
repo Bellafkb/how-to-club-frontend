@@ -1,25 +1,39 @@
 import React, { Component } from 'react';
 import { Row } from 'react-bootstrap'
 import AppCard from "../components/AppCard.js";
+import { connect } from 'react-redux';
+import Prototypes from 'prop-types'
+import { searchClubs } from '../actions/clubActions';
 import '../App.css';
 
 class Feed extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-        }
-    }
 
     render() {
-        return (
-            <div className="feed">
-                {this.props.clubs.map(club =>
-                    <Row>
-                        <AppCard key={club.id} club={club} />
-                    </Row>)}
-            </div>
-        );
+        console.log(this.props.clubs)
+        if (this.props.clubs > 0) {
+            return (
+                <div className="feed">
+                    {
+                        this.props.clubs.items.map(club =>
+                            <Row>
+                                <AppCard key={club.id} club={club} />
+                            </Row>)}
+                </div>
+            );
+        } else {
+            return (<div></div>);
+        }
+
     }
 }
 
-export default Feed;
+Feed.prototypes = {
+    clubs: Prototypes.array.isRequired,
+    searchClubs: Prototypes.func.isRequired
+}
+
+const mapStateToProps = (state) => ({
+    clubs: state.clubs
+});
+
+export default connect(mapStateToProps, { searchClubs })(Feed);

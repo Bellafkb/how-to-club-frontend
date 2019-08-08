@@ -11,7 +11,6 @@ class Feed extends Component {
     }
 
     render() {
-        console.log(this.props.clubs)
         return (
             <div className="feed">
                 {this.props.clubs.map(club =>

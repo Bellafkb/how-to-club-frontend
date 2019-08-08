@@ -12,22 +12,22 @@ class App extends Component {
   }
 
   handleSubmit = event => {
-    event.preventDefault();
+    if(this.state.city){
+      event.preventDefault();
     let city = this.state.place.address_components[0].long_name;
     let lat = this.state.place.geometry.location.lat();
     let lng = this.state.place.geometry.location.lng();
     const request = {
       city,
-      location: `${lat.toString()} , ${lng.toString()}`,
+      location: `${lat},${lng}`,
       types: 'night_club',
-      radius: "100000",
+      radius: "5000"
     };
-
     axios.post(`http://localhost:4000/club`, request)
       .then(clubs => {
         this.setState({clubs : clubs.data.clubs})
-        console.log(this.state.clubs)
       })
+    }
   }
 
   render() {
@@ -38,7 +38,7 @@ class App extends Component {
           <Form inline >
             <Autocomplete
               className="autocomplete"
-              style={{ width: '80%' }}
+              style={{ width: '90%' }}
               onPlaceSelected={(place) => {
                 this.setState({
                   place
@@ -47,7 +47,9 @@ class App extends Component {
               types={['(cities)']}
               componentRestrictions={{ country: "de" }}
             />
-            <Button type="button" style={{ width: '20%' }} variant="outline-info" onClick={this.handleSubmit}>Search</Button>
+            <Button type="button" style={{ width: '10%' }} variant="outline-info" onClick={this.handleSubmit}>
+              search
+              </Button>
           </Form>
         </div>
         <Feed clubs={this.state.clubs} />

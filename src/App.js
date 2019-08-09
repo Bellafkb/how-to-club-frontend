@@ -12,7 +12,7 @@ class App extends Component {
   }
 
   handleSubmit = event => {
-    if(this.state.city){
+    if(this.state.place != undefined){
       event.preventDefault();
     let city = this.state.place.address_components[0].long_name;
     let lat = this.state.place.geometry.location.lat();

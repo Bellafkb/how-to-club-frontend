@@ -23,7 +23,7 @@ class App extends Component {
       types: 'night_club',
       radius: "5000"
     };
-    axios.post(`http://localhost:4000/club`, request)
+    axios.post(`https://peaceful-ocean-93955.herokuapp.com/club`, request)
       .then(clubs => {
         this.setState({clubs : clubs.data.clubs})
       })

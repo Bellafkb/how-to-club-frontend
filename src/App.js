@@ -5,6 +5,7 @@ import Feed from './components/Feed.js'
 import { Form, Button } from 'react-bootstrap'
 import Autocomplete from 'react-google-autocomplete'
 import axios from 'axios'
+import config from './config'
 
 class App extends Component {
   state = {
@@ -12,21 +13,21 @@ class App extends Component {
   }
 
   handleSubmit = event => {
-    if(this.state.place != undefined){
+    if (this.state.place != undefined) {
       event.preventDefault();
-    let city = this.state.place.address_components[0].long_name;
-    let lat = this.state.place.geometry.location.lat();
-    let lng = this.state.place.geometry.location.lng();
-    const request = {
-      city,
-      location: `${lat},${lng}`,
-      types: 'night_club',
-      radius: "5000"
-    };
-    axios.post(`https://peaceful-ocean-93955.herokuapp.com/club`, request)
-      .then(clubs => {
-        this.setState({clubs : clubs.data.clubs})
-      })
+      let city = this.state.place.address_components[0].long_name;
+      let lat = this.state.place.geometry.location.lat();
+      let lng = this.state.place.geometry.location.lng();
+      const request = {
+        city,
+        location: `${lat},${lng}`,
+        types: 'night_club',
+        radius: "5000"
+      };
+      axios.post(config.BASE_API_URL, request)
+        .then(clubs => {
+          this.setState({ clubs: clubs.data.clubs })
+        })
     }
   }
 

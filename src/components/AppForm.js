@@ -15,7 +15,7 @@ class AppForm extends Component {
     }
 
     onHandleSubmit = event => {
-        if (this.state.place != undefined) {
+        if (this.state.place !== undefined) {
             event.preventDefault();
             let city = this.state.place.address_components[0].long_name;
             let lat = this.state.place.geometry.location.lat();

@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
-import { Navbar, Nav} from 'react-bootstrap';
+import { Navbar } from 'react-bootstrap';
 
 class NavBar extends Component {
     render() {
         return (
-            <Navbar bg="dark" variant="dark">
-                <Navbar.Brand href="#home">Klubby</Navbar.Brand>
-                <Nav className="mr-auto">
-                    <Nav.Link href="#home">Home</Nav.Link>
-                    <Nav.Link href="#features">Features</Nav.Link>
-                    <Nav.Link href="#pricing">Pricing</Nav.Link>
-                </Nav>
+            <Navbar bg="dark" variant="dark"
+                style={{
+                    position: 'fixed',
+                    top: 0,
+                    width: '100%'
+                }}>
+                <Navbar.Brand href="/">Klubby</Navbar.Brand>
             </Navbar>
         );
     }

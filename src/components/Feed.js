@@ -9,8 +9,8 @@ import '../App.css';
 class Feed extends Component {
 
     render() {
-        console.log(this.props.clubs)
-        if (this.props.clubs > 0) {
+        if (this.props.clubs.items !== undefined) {
+            console.log(this.props.clubs.items)
             return (
                 <div className="feed">
                     {
@@ -32,8 +32,12 @@ Feed.prototypes = {
     searchClubs: Prototypes.func.isRequired
 }
 
-const mapStateToProps = (state) => ({
-    clubs: state.clubs
-});
+const mapStateToProps = (state) => {
+    let {clubs} = state;
+    console.log(clubs)
+    return {
+        clubs: state.clubs
+    }
+};
 
 export default connect(mapStateToProps, { searchClubs })(Feed);

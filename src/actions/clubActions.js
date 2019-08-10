@@ -18,7 +18,7 @@ export const testFunction = () => (dispatch) => {
 }
 
 export const searchClubs = req => dispatch => {
-        axios.post(`http://localhost:4000/club`, req)
+        axios.post(`https://peaceful-ocean-93955.herokuapp.com/club`, req)
             .then(({data}) => {
                 dispatch({
                     type: SEARCH_CLUBS,

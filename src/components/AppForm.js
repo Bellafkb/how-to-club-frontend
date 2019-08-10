@@ -33,7 +33,7 @@ class AppForm extends Component {
     render() {
         return (
             <div class="form-container" >
-                <Form inline >
+                <div className="input-group">
                     <Autocomplete
                         className="autocomplete"
                         style={{ width: '80%' }}
@@ -43,10 +43,17 @@ class AppForm extends Component {
                             })
                         }}
                         types={['(cities)']}
-                        componentRestrictions={{}}
                     />
-                    <Button style={{ width: '20%' }} variant="outline-info" onClick={this.onHandleSubmit}>Search</Button>
-                </Form>
+                    <div className="input-group-append">
+                        <button className="btn btn-secondary"
+                            type="button"
+                            onClick={this.onHandleSubmit}
+                            style={{width : '100%'}}>
+                            search
+                        </button>
+                    </div>
+                </div>
+
             </div>
         );
     }

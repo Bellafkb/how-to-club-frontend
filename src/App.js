@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import NavBar from './components/NavBar.js'
 import Feed from './components/Feed.js'
-import { Form, Button } from 'react-bootstrap'
 import Autocomplete from 'react-google-autocomplete'
 import axios from 'axios'
 import config from './config'
@@ -13,7 +12,7 @@ class App extends Component {
   }
 
   handleSubmit = event => {
-    if (this.state.place != undefined) {
+    if (this.state.place !== undefined) {
       event.preventDefault();
       let city = this.state.place.address_components[0].long_name;
       let lat = this.state.place.geometry.location.lat();
@@ -35,26 +34,30 @@ class App extends Component {
     return (
       <div className="App">
         <NavBar />
-        <div class="form-container" >
-          <Form inline >
+        <div className="form-container">
+
+          <div className="input-group">
             <Autocomplete
               className="autocomplete"
-              style={{ width: '90%' }}
+              style={{ width: '80%' }}
               onPlaceSelected={(place) => {
                 this.setState({
                   place
                 })
               }}
               types={['(cities)']}
-              componentRestrictions={{ country: "de" }}
             />
-            <Button type="button" style={{ width: '10%' }} variant="outline-info" onClick={this.handleSubmit}>
-              search
-              </Button>
-          </Form>
+            <div className="input-group-append">
+              <button className="btn btn-secondary"
+                type="button"
+                onClick={this.handleSubmit}>
+                search
+              </button>
+            </div>
+          </div>
         </div>
         <Feed clubs={this.state.clubs} />
-      </div>
+      </div >
     );
   }
 }

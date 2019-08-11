@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Form, Button } from 'react-bootstrap'
 import Autocomplete from 'react-google-autocomplete'
 import { connect } from 'react-redux';
 import { searchClubs } from '../actions/clubActions';
@@ -48,12 +47,12 @@ class AppForm extends Component {
                         <button className="btn btn-secondary"
                             type="button"
                             onClick={this.onHandleSubmit}
-                            style={{width : '100%'}}>
+                            style={{width : '100%',
+                            background:"black"}}>
                             search
                         </button>
                     </div>
                 </div>
-
             </div>
         );
     }

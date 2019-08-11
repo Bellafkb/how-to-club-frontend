@@ -4,7 +4,6 @@ import NavBar from './components/NavBar.js'
 import Feed from './components/Feed.js'
 import { Provider } from 'react-redux'
 import store from './store'
-import AppForm from './components/AppForm'
 
 class App extends Component {
   state = {
@@ -16,10 +15,8 @@ class App extends Component {
       <Provider store={store}>
         <div className="App">
           <NavBar style={{
-            margin: 'auto',
-            width: '50%',
+            margin: 'auto'
           }} />
-          <AppForm></AppForm>
           <Feed />
         </div>
       </Provider>

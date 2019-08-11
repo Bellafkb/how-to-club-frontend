@@ -6,7 +6,7 @@ export default class AppCard extends Component {
 
         return (
             <Card style={{ width: '100%' , background : '#c2c2c2'}}>
-                <Card.Img variant="top"
+                <Card.Img alt="" variant="top"
                     src="https://images.unsplash.com/photo-1532452119098-a3650b3c46d3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" />
                 <Card.Body>
                     <Card.Title>{this.props.club.name}</Card.Title>

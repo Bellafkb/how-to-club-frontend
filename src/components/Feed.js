@@ -10,7 +10,6 @@ class Feed extends Component {
 
     render() {
         if (this.props.clubs.items !== undefined) {
-            console.log(this.props.clubs.items)
             return (
                 <div className="feed">
                     {

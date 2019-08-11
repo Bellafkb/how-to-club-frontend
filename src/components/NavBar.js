@@ -11,8 +11,9 @@ class NavBar extends Component {
                 style={{
                     position: 'fixed',
                     top: 0,
-                    background: '#6c757d',
+                    background: '#6441a4',
                     width: '100%',
+                    height: '60px'
                 }}>
                 <Navbar.Brand href="/">Klubby</Navbar.Brand>
                 <AppForm></AppForm>

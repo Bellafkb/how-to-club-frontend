@@ -14,10 +14,8 @@ class App extends Component {
     return (
       <Provider store={store}>
         <div className="App">
-          <NavBar style={{
-            margin: 'auto'
-          }} />
-          <Feed />
+          <NavBar/>
+          <Feed/>
         </div>
       </Provider>
     );

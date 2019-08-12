@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Navbar } from 'react-bootstrap';
 import AppForm from './AppForm';
 import NavProfile from './NavProfile';
+import Notification from './Notification';
 
 class NavBar extends Component {
     render() {
@@ -15,8 +16,9 @@ class NavBar extends Component {
                     width: '100%',
                     height: '60px'
                 }}>
-                <Navbar.Brand href="/">Klubby</Navbar.Brand>
+                <Navbar.Brand href="/"><strong>Klubby</strong></Navbar.Brand>
                 <AppForm></AppForm>
+                <Notification></Notification>
                 <NavProfile></NavProfile>
             </Navbar>
         );

@@ -9,13 +9,15 @@ import '../App.css';
 class Feed extends Component {
 
     render() {
+
         if (this.props.clubs.items !== undefined) {
+            this.props.handleNotLoading();
             return (
                 <div className="feed">
                     {
                         this.props.clubs.items.map(club =>
                             <Row>
-                                <AppCard key={club.id} club={club} />
+                                <AppCard key={club._id} club={club} />
                             </Row>)}
                 </div>
             );
@@ -32,8 +34,6 @@ Feed.prototypes = {
 }
 
 const mapStateToProps = (state) => {
-    let {clubs} = state;
-    console.log(clubs)
     return {
         clubs: state.clubs
     }

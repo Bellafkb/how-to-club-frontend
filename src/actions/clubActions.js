@@ -7,7 +7,9 @@ export const searchClubs = req => dispatch => {
         .then(({ data }) => {
             dispatch({
                 type: SEARCH_CLUBS,
-                payload: data.clubs
+                payload: data
             })
+        }).catch(err => {
+            throw err;
         })
 }  

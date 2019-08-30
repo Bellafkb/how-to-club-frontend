@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
 import { Dropdown } from 'react-bootstrap'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBell } from '@fortawesome/free-solid-svg-icons'
 
 export default class Notification extends Component {
     render() {
         return (
-            <Dropdown>
-                <Dropdown.Toggle variant="success" id="dropdown-basic">
+            <Dropdown style={{ width: '100%' }}>
+                <Dropdown.Toggle style={{ width: '100%' }}
+                    variant="success" id="dropdown-basic">
                     Notification
                 </Dropdown.Toggle>
                 <Dropdown.Menu>

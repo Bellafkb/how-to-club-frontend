@@ -1,26 +1,49 @@
 import React, { Component } from 'react'
-import { Card} from "react-bootstrap";
+import { Card, Row, Col } from "react-bootstrap";
+import config from "../config";
+import { Link } from "react-router-dom";
 
 export default class AppCard extends Component {
     render() {
+        const event = this.props.club;
+        let logoUrl = config.DEFAULT_LOGO;
+
+        if (this.props.club.logo !== undefined && this.props.club.logo !== null) {
+            logoUrl = this.props.club.logo.url
+        }
+        const limit = 86;
+        let description = event.description.text
+        if (description !== null) {
+            if (description.length >= limit) {
+                description = description.substring(0, limit) + '...';
+            }
+        }
 
         return (
-            <Card style={{ width: '100%' , background : '#c2c2c2'}}>
-                <Card.Img alt="" variant="top"
-                    src="https://images.unsplash.com/photo-1532452119098-a3650b3c46d3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" />
-                <Card.Body>
-                    <Card.Title>{this.props.club.name}</Card.Title>
-                    <Card.Text>
-                        <small className="text">{this.props.club.vicinity}</small>
-                    </Card.Text>
-                    <Card.Text>
-                        Some quick example text to build on the card title and make up the bulk of
-                        the card's content.
-              </Card.Text>
-                </Card.Body>
-                <Card.Footer>
-                    <small className="text-muted">Last updated 3 mins ago</small>
-                </Card.Footer>
+            <Card style={{ width: '100%' }}>
+                <Row >
+                    <Col md={4}>
+                        <Card.Img style={{
+                            padding: '5px',
+                            height: '100%',
+                            width: '100%'
+                        }} alt="" variant="top"
+                            src={logoUrl} />
+                    </Col>
+                    <Col md={8} style={{ padding: 1 }}>
+                        <Card.Body style={{ padding: '5px' }}>
+                            <Link to={`/event/${event.id}`}>
+                                <Card.Title><a style={{
+                                    textDecoration: 'none',
+                                    fontSize: '16px'
+                                }}>{this.props.club.name.text}</a></Card.Title>
+                            </Link>
+                            <Card.Subtitle style={{ fontSize: "14px" }}
+                                class="text-muted">{this.props.club.venue.address.address_1 || 'None'}</Card.Subtitle>
+                            <p>{this.props.club.start.local}</p>
+                        </Card.Body>
+                    </Col>
+                </Row>
             </Card>
 
         )

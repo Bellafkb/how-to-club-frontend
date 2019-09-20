@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import Prototypes from 'prop-types'
 import { searchClubs } from '../actions/clubActions';
 import '../App.css';
+import Pagination from './Pagination'
 
 class Feed extends Component {
 
@@ -13,11 +14,11 @@ class Feed extends Component {
         if (this.props.clubs.items !== undefined) {
             this.props.handleNotLoading();
             return (
-                <div className="feed">
+                <div className="feed" style={{ marginTop: '20px' }}>
                     {
-                        this.props.clubs.items.map(club =>
-                            <Row>
-                                <AppCard key={club._id} club={club} />
+                        this.props.clubs.items.map((club, i) =>
+                            <Row key={i}>
+                                <AppCard profile={this.props.profile} key={club._id} club={club} />
                             </Row>)}
                 </div>
             );

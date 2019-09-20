@@ -12,6 +12,16 @@ class AppForm extends Component {
             place: undefined
         }
     }
+    componentWillMount() {
+        const request = {
+            city: 'berlin',
+            location: '',
+            category: '103',
+            radius: "10km"
+        };
+        this.props.searchClubs(request)
+        this.props.handleLoading()
+    }
 
     onHandleSubmit = event => {
         if (this.state.place !== undefined) {
@@ -33,10 +43,13 @@ class AppForm extends Component {
 
     render() {
         return (
-            <div className="form-container"  style={{width:'100%'}}>
-                <div className="input-group" style={{width:'100%'}}>
+            <div className="form-container" style={{ width: '100%' }}>
+                <div className="input-group" style={{
+                    width: '100%',
+                    padding: 0
+                }}>
                     <Autocomplete
-                        style={{width:"90%"}}
+                        style={{ width: "90%" }}
                         className="autocomplete"
                         onPlaceSelected={(place) => {
                             this.setState({
@@ -45,14 +58,15 @@ class AppForm extends Component {
                         }}
                         types={['(cities)']}
                     />
-                    <div className="input-group-append">
+                    <div className="input-group-append" style={{ padding: 0 }}>
                         <button className="btn btn-secondary"
                             type="button"
                             onClick={this.onHandleSubmit}
                             style={{
                                 background: "#495057",
                                 borderColor: '#6441a4',
-                                width:'100%'
+                                margin: 0,
+                                width: 45
                             }}>
                             <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg"
                                 fillRule="evenodd" clipRule="evenodd">

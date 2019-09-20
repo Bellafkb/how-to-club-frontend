@@ -10,24 +10,23 @@ class NavBar extends Component {
             <Navbar
                 variant="dark"
                 style={{
-                    position: 'fixed',
-                    top: 0,
+                    margin:0,
                     background: '#6441a4',
                     width: '100%',
                     height: '60px',
                 }}>
-                <Container style={{margin : 0, width: '100%'}} >
-                    <Row style={{width:'100%'}}>
-                        <Col sm={1} style={{padding:0}}>
+                <Container style={{width: '50%',margin: 'auto'}} >
+                    <Row style={{width:'100%', padding: 0}}>
+                        <Col sm={2} style={{padding:'auto'}}>
                             <Navbar.Brand href="/">
                                 <strong>Klubby</strong>
                             </Navbar.Brand>
                         </Col>
-                        <Col sm={8} style={{padding:0}}>
+                        <Col sm={8} style={{padding:'0'}}>
                             <AppForm handleLoading={this.props.handleLoading} ></AppForm>
                         </Col>
-                        <Col sm={2} style={{padding:0}}>
-                            <Notification style={{ width: "100%" }}></Notification>
+                        <Col sm={1} style={{padding:0}}>
+                            <Notification ></Notification>
                         </Col>
                         <Col sm={1} style={{padding:0}}>
                             <NavProfile handleShow={this.props.handleShow}></NavProfile>

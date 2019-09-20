@@ -6,14 +6,15 @@ export default class Login extends Component {
         return (
             <div>
                 <Modal size='sm'
-                show={this.props.showLogin}
+                    show={this.props.showLogin}
                     onHide={this.props.handleClose}>
                     <Modal.Header closeButton>
                         <Modal.Title>Login</Modal.Title>
                     </Modal.Header>
-                    <Modal.Body style={{textAlign: 'center'}}>
-                        <Button 
-                        variant="primary">
+                    <Modal.Body style={{ textAlign: 'center' }}>
+                        <Button
+                            onClick={() => window.location = 'http://localhost:4000/auth/instagram'}
+                            variant="primary">
                             Instagram login
                         </Button>
                     </Modal.Body>

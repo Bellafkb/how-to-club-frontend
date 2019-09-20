@@ -5,9 +5,13 @@ export default class Notification extends Component {
     render() {
         return (
             <Dropdown style={{ width: '100%' }}>
-                <Dropdown.Toggle style={{ width: '100%' }}
+                <Dropdown.Toggle style={{
+                    width: '40px',
+                    height: '40px',
+                    borderRadius: '50%'
+                }}
                     variant="success" id="dropdown-basic">
-                    Notification
+                    N
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
                     <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
